@@ -19,7 +19,7 @@ EPOCHS = 5
 def main():
 
     train_ds, val_ds = load_sentiment140(batch_size=BATCH_SIZE, epochs=EPOCHS)
-    steps_per_epoch = tf.data.experimental.cardinality(train_ds).numpy()
+    steps_per_epoch = tf.data.experimental.cardinality(train_ds).numpy() // EPOCHS
 
     init_lr = 3e-5
     # optimizer = optimization.create_optimizer(
